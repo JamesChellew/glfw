@@ -1,11 +1,10 @@
 project "GLFW"
-  kind "StaticLib"
-  language "C"
+	kind "StaticLib"
+	language "C"
+	targetdir("bin/" .. outputdir .. "/%{prj.name}")
+	objdir("bin-int/" .. outputdir .. "/%{prj.name}")
 
-  targetdir("bin/" .. outputdir .. "/%{prj.name}")
-  objdir("bin-int/" .. outputdir .. "/%{prj.name}")
-
-  files
+	files
 	{
 		"include/GLFW/glfw3.h",
 		"include/GLFW/glfw3native.h",
@@ -17,7 +16,7 @@ project "GLFW"
 		"src/vulkan.c",
 		"src/window.c"
 	}
-  filter "system:windows"
+	filter "system:windows"
 		systemversion "latest"
 		staticruntime "On"
 
@@ -34,7 +33,7 @@ project "GLFW"
 			"src/osmesa_context.c"
 		}
 
-  defines 
+	defines 
 		{ 
 			"_GLFW_WIN32",
 			"_CRT_SECURE_NO_WARNINGS"
